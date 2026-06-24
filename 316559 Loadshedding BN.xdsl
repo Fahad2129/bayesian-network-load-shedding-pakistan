@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
+<smile version="1.0" id="Network3" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="V1_Fuel_Price">
+			<state id="low" />
+			<state id="high" />
+			<probabilities>0.35 0.65</probabilities>
+		</cpt>
+		<cpt id="V4_Rainfall">
+			<state id="Low" />
+			<state id="high" />
+			<probabilities>0.55 0.45</probabilities>
+		</cpt>
+		<cpt id="V8_Electricity_demand">
+			<state id="low" />
+			<state id="high" />
+			<probabilities>0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="V2_Govt_Payment_Capacity">
+			<state id="low" />
+			<state id="Adequate" />
+			<parents>V1_Fuel_Price</parents>
+			<probabilities>0.3 0.7 0.7 0.3</probabilities>
+		</cpt>
+		<cpt id="V7_Grid_Infrastructure">
+			<state id="poor" />
+			<state id="good" />
+			<probabilities>0.65 0.35</probabilities>
+		</cpt>
+		<cpt id="V3_Fuel_supply">
+			<state id="Insufficient" />
+			<state id="sufficient" />
+			<parents>V1_Fuel_Price V2_Govt_Payment_Capacity</parents>
+			<probabilities>0.45 0.55 0.1 0.9 0.85 0.15 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="V5_hydro_generation">
+			<state id="low" />
+			<state id="high" />
+			<parents>V4_Rainfall</parents>
+			<probabilities>0.8 0.2 0.25 0.75</probabilities>
+		</cpt>
+		<cpt id="V10_transmission_loss">
+			<state id="low" />
+			<state id="high" />
+			<parents>V7_Grid_Infrastructure</parents>
+			<probabilities>0.15 0.85 0.8 0.2</probabilities>
+		</cpt>
+		<cpt id="V6_thermal_generation">
+			<state id="low" />
+			<state id="high" />
+			<parents>V3_Fuel_supply</parents>
+			<probabilities>0.85 0.15 0.2 0.8</probabilities>
+		</cpt>
+		<cpt id="V9_total_generation">
+			<state id="low" />
+			<state id="adequate" />
+			<state id="high" />
+			<parents>V6_thermal_generation V5_hydro_generation</parents>
+			<probabilities>0.8 0.18 0.02 0.35 0.5 0.15 0.25 0.55 0.2 0.05 0.3 0.65</probabilities>
+		</cpt>
+		<cpt id="V11_Load_Shedding_Severity">
+			<state id="low" />
+			<state id="moderate" />
+			<state id="high" />
+			<parents>V7_Grid_Infrastructure V9_total_generation V10_transmission_loss V8_Electricity_demand</parents>
+			<probabilities>0.18 0.45 0.37 0.05 0.25 0.7 0.08 0.32 0.6 0.02 0.13 0.85 0.4 0.45 0.15 0.18 0.45 0.37 0.22 0.48 0.3 0.08 0.32 0.6 0.65 0.28 0.07000000000000001 0.35 0.45 0.2 0.4 0.42 0.18 0.15 0.45 0.4 0.35 0.45 0.2 0.12 0.38 0.5 0.18 0.42 0.4 0.06 0.24 0.7 0.6 0.32 0.08 0.3 0.45 0.25 0.38 0.45 0.17 0.15 0.42 0.43 0.85 0.12 0.03 0.55 0.35 0.1 0.6 0.32 0.08 0.3 0.45 0.25</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 5.0.5310.0 ACADEMIC" name="Network3">
+			<node id="V1_Fuel_Price">
+				<name>V1 Fuel Price</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>347 85 446 141</position>
+				<barchart active="true" />
+			</node>
+			<node id="V4_Rainfall">
+				<name>V4 Rainfall</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>611 89 707 145</position>
+				<barchart active="true" />
+			</node>
+			<node id="V8_Electricity_demand">
+				<name>V8 Electricity demand</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>958 93 1055 153</position>
+				<barchart active="true" />
+			</node>
+			<node id="V2_Govt_Payment_Capacity">
+				<name>V2 Govt Payment Capacity</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>497 203 587 259</position>
+				<barchart active="true" />
+			</node>
+			<node id="V7_Grid_Infrastructure">
+				<name>V7 Grid Infrastructure</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>668 201 758 257</position>
+				<barchart active="true" />
+			</node>
+			<node id="V3_Fuel_supply">
+				<name>V3 Fuel supply</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>379 304 463 356</position>
+				<barchart active="true" />
+			</node>
+			<node id="V5_hydro_generation">
+				<name>V5 hydro generation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>552 301 660 368</position>
+				<barchart active="true" />
+			</node>
+			<node id="V10_transmission_loss">
+				<name>V10 transmission loss</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>746 313 847 377</position>
+				<barchart active="true" />
+			</node>
+			<node id="V6_thermal_generation">
+				<name>V6 thermal generation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>382 449 478 510</position>
+				<barchart active="true" />
+			</node>
+			<node id="V9_total_generation">
+				<name>V9 total generation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>585 442 686 505</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="V11_Load_Shedding_Severity">
+				<name>V11 Load Shedding Severity</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>649 634 741 691</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+		</genie>
+	</extensions>
+</smile>
